@@ -1,0 +1,37 @@
+package CqueueP;
+import java.util.Scanner;
+
+
+public class CPqueuemain {
+	
+	public static void main(String[] args) {
+		Scanner scanner = new Scanner(System.in);
+		
+		CPqueue Cqueue = new CPqueue(5);
+		
+		for(int i = 0;i < 5;i++) {
+			System.out.print("Enert the queue value: ");
+			Cqueue.insert(scanner.nextInt());
+		}
+		
+		System.out.println("View options(r/p): ");
+		char option = scanner.next().charAt(0);
+		
+		if(option == 'r') {
+			while(!Cqueue.isEmpty()) {
+				System.out.print(Cqueue.remove() + " ");
+			}
+		}else if(option == 'p') {
+			if(!Cqueue.isEmpty()) {
+				System.out.print("Ther front of the queue is: " + Cqueue.peekFront());
+			}else {
+				System.out.println("The queue is empty.");
+			}
+		}else {
+			System.out.println("Invalide option. Please enter r for remove or p for peek.");
+		}
+			
+		
+		scanner.close();
+	}
+}
